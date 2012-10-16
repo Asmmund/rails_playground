@@ -1,0 +1,16 @@
+div
+  = form_for @user, url: wizard_path, :method => :put do |f|
+    p  
+      'Name
+      = @user.name
+    p 
+      'Email
+      = @user.email
+    p 
+      'Address
+      = @user.address
+    p 
+      'Company info
+      = @user.company_info
+    /p
+      = f.submit 'Save'

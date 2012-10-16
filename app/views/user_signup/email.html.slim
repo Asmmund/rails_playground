@@ -1,0 +1,11 @@
+p email
+= form_for @user, url: wizard_path do |f|
+  p
+    = f.label :name
+    = f.text_field :name
+  p
+    = f.label :email
+    = f.text_field :email
+  p  
+    = f.submit 'Continue'
+= link_to 'skip', next_wizard_path
