@@ -1,5 +1,5 @@
 div
-  = form_for @user, url: wizard_path, :method => :put do |f|
+  = form_for @user, url: root_path do |f|
     p  
       'Name
       = @user.name
@@ -12,5 +12,5 @@ div
     p 
       'Company info
       = @user.company_info
-    /p
-      = f.submit 'Save'
+    p
+      = f.submit 'Create New'

@@ -5,6 +5,6 @@ class UsersController < ApplicationController
   
   def create
     session[:user] = User.new(params[:user])
-    redirect_to user_signup_index_path
+    redirect_to step2_path
   end
 end

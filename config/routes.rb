@@ -1,6 +1,8 @@
 MultipageForm::Application.routes.draw do
   resources :users
-  resources :user_signup 
+  match 'step2' => 'user_signup#step2'
+  match 'step3' => 'user_signup#step3'
+  match 'step4' => 'user_signup#step4'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

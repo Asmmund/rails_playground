@@ -1,23 +1,23 @@
 class UserSignupController < ApplicationController
-  include Wicked::Wizard
-  steps  :address, :company_info, :sum_up
 
-  def show
-    @user = session[:user]
-#    case step
-#    when :sum_up
-#      if @user.save
-#        # success
-#      else
-#        # didn't work
-#      end
-#    end
-    render_wizard 
+  def step2
+    update
+    render 'user_signup/index'
   end
-  
-  def update
+  def step3
+    update
+    render 'user_signup/company_info'   
+  end
+  def step4
+    update
+    if @user.save
+      render 'user_signup/sum_up'      
+    else
+      redirect_to step2
+    end
+  end
+    def update
     @user = session[:user] 
     @user.update_attributes(params[:user])
-    render_wizard @user
   end
 end

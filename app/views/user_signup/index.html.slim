@@ -1,0 +1,7 @@
+p address
+= form_for @user, url: step3_path do |f|
+  p
+    = f.label :address
+    = f.text_field :address
+  p
+   = f.submit 'Continue'

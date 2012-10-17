@@ -1,8 +1,7 @@
 p company info 
-= form_for @user, url: wizard_path do |f|
+= form_for @user, url: step4_path do |f|
   p
     = f.label :company_info
     = f.text_field :company_info
   p
     = f.submit 'Continue'
-= link_to 'Skip', next_wizard_path
