@@ -1,6 +1,8 @@
+- if notice
+  p[class='notice'] = notice
 div
   h3 Sum up of information:
-  = form_for @user, url: root_path do |f|
+  = form_tag root_path do 
     p  
       'Name
       = @user.name
@@ -14,4 +16,4 @@ div
       'Company info
       = @user.company_info
     p
-      = f.submit 'Create New'
+      = submit_tag 'Create New' 

@@ -1,7 +1,9 @@
+- if notice
+  p[class='notice'] = notice
 p  Step 2. Enter your address:
-= form_for @user, url: step3_path do |f|
+= form_tag step3_path do 
   p
-    = f.label :address
-    = f.text_field :address
+    = label_tag 'Address'
+    = text_field_tag 'user[address]'
   p
-   = f.submit 'Continue'
+   = submit_tag 'Continue'

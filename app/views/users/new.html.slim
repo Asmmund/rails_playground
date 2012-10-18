@@ -1,10 +1,12 @@
+- if notice
+  p[class='notice'] = notice
 p email
-= form_for @user do |f|
+= form_tag step2_path do 
   p
-    = f.label :name
-    = f.text_field :name
+    = label_tag 'Name'
+    = text_field_tag 'user[name]'
   p
-    = f.label :email
-    = f.text_field :email
+    = label_tag 'Email'
+    = text_field_tag 'user[email]'
   p  
-    = f.submit 'Continue'
+    = submit_tag 'Continue'

@@ -1,13 +1,32 @@
 class UserSignupController < ApplicationController
 
   def steps
-    update
+    @check = true
+    next_step
     path = request.env['PATH_INFO']
-    render "user_signup/#{path[1..-1]}" 
+    @user = session[:user]     if path == '/step4'
+     render "user_signup/#{path[1..-1]}" if @check
   end
-
-    def update
-    @user = session[:user] 
-    @user.update_attributes(params[:user])
+  
+  def next_step
+    valid_or_back
+    update
+  end  
+  def valid_or_back
+    if params[:user].present?
+      params[:user].map do |k,v| 
+        if v == '' && @check
+          redirect_to :back, notice: 'Fill in the fields!' 
+          @check = false
+        end
+      end
+    else
+      redirect_to :back, notice: 'Fill in the fields!' 
+      @check = false 
+    end
+ 
+  end
+  def update
+    session[:user].update_attributes(params[:user])
   end
 end
