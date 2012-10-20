@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
   
   def create
-    session[:user] = params[:user]
+    session[:user] = {}
     redirect_to step2_path
   end
 end

@@ -1,19 +1,17 @@
-- if notice
-  p[class='notice'] = notice
 div
   h3 Sum up of information:
   = form_tag root_path do 
     p  
       'Name
-      = @user.name
+      = @user[:name]
     p 
       'Email
-      = @user.email
+      = @user[:email]
     p 
       'Address
-      = @user.address
+      = @user[:address]
     p 
       'Company info
-      = @user.company_info
+      = @user[:company_info]
     p
       = submit_tag 'Create New' 
