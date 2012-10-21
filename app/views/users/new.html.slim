@@ -1,9 +1,13 @@
 - if notice
   p[class='notice'] = notice
-p email
-= form_tag step2_path do 
-  p
-    = label_tag 'Email'
-    = text_field_tag 'user[email]'
-  p  
-    = submit_tag 'Continue'
+p Enter your personal data
+= form_tag step2_path, :id => 'form' do 
+  fieldset
+    p
+      = label_tag 'Name'
+      = text_field_tag 'user[name]',nil, :class=>"required"
+    p
+      = label_tag 'Email'
+      = text_field_tag 'user[email]',nil, :class=>"required email"
+    p  
+      = submit_tag 'Continue'

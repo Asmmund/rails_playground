@@ -11,7 +11,5 @@
  *= require_self
  *= require_tree .
  */
- .notice{
-color: red;
-font-weight: bold;
-}
+
+label.error { float: none; color: red; padding-left: .5em; vertical-align: top; }

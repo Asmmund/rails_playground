@@ -1,9 +1,10 @@
 - if notice
   p[class='notice'] = notice
 p Enter your's company info 
-= form_tag step4_path do 
-  p
-    = label_tag 'Company info'
-    = text_field_tag 'user[company_info]'
-  p
-    = submit_tag 'Continue'
+= form_tag step4_path, :id => 'form' do 
+  fieldset
+    p
+      = label_tag 'Company info'
+      = text_field_tag 'user[company_info]',nil,:class=>"required"
+    p
+      = submit_tag 'Continue'

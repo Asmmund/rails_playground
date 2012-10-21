@@ -1,9 +1,10 @@
 - if notice
   p[class='notice'] = notice
 p  Step 2. Enter your address:
-= form_tag step3_path do 
-  p
-    = label_tag 'Address'
-    = text_field_tag 'user[address]'
-  p
-   = submit_tag 'Continue'
+= form_tag step3_path, :id => 'form' do 
+  fieldset
+    p
+      = label_tag 'Address'
+      = text_field_tag 'user[address]', nil,:class=>"required"
+    p
+     = submit_tag 'Continue'  
