@@ -1,0 +1,5 @@
+- if notice
+  p[id='notice'] = notice
+p
+  = link_to  "New User", new_user_path
+= render @users, spacer_template: 'users/space' || 'There are no users yet!' 

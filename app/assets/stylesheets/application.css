@@ -12,4 +12,8 @@
  *= require_tree .
  */
 
-label.error { float: none; color: red; padding-left: .5em; vertical-align: top; }
+.errors { text-decoration: none; color: red; vertical-align: top; }
+div.sum_up p:first-line{
+  text-decoration: underline ;
+}
+#notice{ font-size: 1.5em; font-weight: bold}

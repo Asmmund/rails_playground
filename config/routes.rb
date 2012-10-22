@@ -1,8 +1,9 @@
 MultipageForm::Application.routes.draw do
   resources :users
-  match 'step2' => 'user_signup#steps'
-  match 'step3' => 'user_signup#steps'
-  match 'step4' => 'user_signup#steps'
+#  resources :users
+#  match 'step2' => 'user_signup#steps'
+#  match 'step3' => 'user_signup#steps'
+#  match 'step4' => 'user_signup#steps'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -59,5 +60,5 @@ MultipageForm::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
-  root :to => 'users#new'
+  root :to => 'users#index'
 end

@@ -1,13 +1,16 @@
 - if notice
-  p[class='notice'] = notice
-p Enter your personal data
-= form_tag step2_path, :id => 'form' do 
-  fieldset
-    p
-      = label_tag 'Name'
-      = text_field_tag 'user[name]',nil, :class=>"required"
-    p
-      = label_tag 'Email'
-      = text_field_tag 'user[email]',nil, :class=>"required email"
-    p  
-      = submit_tag 'Continue'
+  p[id='notice'] = notice
+h2 Enter your personal data
+- if @user.errors.any?
+  ul[class="errors"]
+    - @user.errors.full_messages.each do |msg|
+      li = msg
+
+=  form_for @user do |f| 
+  = render "#{@user.current_step}", :f => f 
+  p
+    = f.submit 'Continue'
+  p
+    = f.submit "Back", name: "back_button" unless @user.first_step?
+  div
+  = link_to "Back to List", users_path
