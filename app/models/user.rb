@@ -26,11 +26,11 @@ class User < ActiveRecord::Base
   end
   
   def first_step?
-    @current_step == steps.first
+    current_step == steps.first
   end
   
   def last_step?
-    @current_step == steps.last
+    current_step == steps.last
   end
   
   def all_valid?

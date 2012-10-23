@@ -12,3 +12,4 @@
 /log/*.log
 /tmp
 /nbproject
+/db/.sqlite3

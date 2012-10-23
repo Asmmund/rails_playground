@@ -5,12 +5,11 @@ h2 Enter your personal data
   ul[class="errors"]
     - @user.errors.full_messages.each do |msg|
       li = msg
-
 =  form_for @user do |f| 
   = render "#{@user.current_step}", :f => f 
   p
-    = f.submit 'Continue'
+    = f.submit (@user.last_step?)?'Save':'Continue'
   p
     = f.submit "Back", name: "back_button" unless @user.first_step?
   div
-  = link_to "Back to List", users_path
+  = link_to "back to User list", users_path  unless @user.last_step?

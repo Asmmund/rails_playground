@@ -36,5 +36,4 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
- gem 'wicked'
  gem 'slim', '1.1.1'
