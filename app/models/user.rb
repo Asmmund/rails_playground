@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
-  attr_accessible :street,:address, :company_info, :email, :name
+  has_many :user_categories, dependent: :destroy
+  has_many :categories, through: :user_categories
+  attr_accessible :street,:address, :company_info, :email, :name, :category_ids
   attr_writer :current_step
+
   after_initialize :set_beggining
   validates  :email, :name, presence: true, if: lambda { |o| o.current_step == "step1" }
    validates :street,presence: true, if: lambda { |o| o.current_step == "step2" }
@@ -10,6 +13,7 @@ class User < ActiveRecord::Base
   end
   def street=(street)
     self.address =  'Ukraine,Sevastopol,' + street if street.present?
+
   end
   def set_beggining
     @current_step = steps.first

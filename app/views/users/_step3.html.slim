@@ -3,5 +3,11 @@ fieldset
   p
     = f.label :company_info
     = f.text_field :company_info
+  p
+    = hidden_field_tag 'user[category_ids][]', nil
+    - Category.all.each do  |c|
+      = check_box_tag 'user[category_ids][]', c.id, @user.category_ids.include?(c.id),id: dom_id(c)
+      = label_tag dom_id(c),c.name
+      br
 
 

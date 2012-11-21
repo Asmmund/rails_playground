@@ -23,5 +23,9 @@ div[class='sum_up']
       div
         = @user[:company_info]
 
-      hr
-
+    p
+      'Categories:
+      div
+        - @user.categories.each do |c|
+          = c.name
+          br
