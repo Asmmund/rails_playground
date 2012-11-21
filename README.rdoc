@@ -1,2 +1,1 @@
-branch with js validation of input elements! can be useful!
-
+branch with virtual attributes
