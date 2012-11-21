@@ -2,19 +2,27 @@ div[class='sum_up']
   h3 Sum up of information:
 
   fieldset
-    p  
+    p
       'Name:
       div
         = @user[:name]
-    p 
+    p
       'Email:
       div
         = @user[:email]
-    p 
+    p
+      'street:
+      div
+        = @user[:street]
+    p
       'Address:
       div
         = @user[:address]
-    p 
+    p
       'Company info:
       div
         = @user[:company_info]
+      div
+        = @user[:year_of_creation]
+      hr
+
