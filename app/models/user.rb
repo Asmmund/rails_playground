@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   end
   def street=(street)
     self.address =  'Ukraine,Sevastopol,' + street if street.present?
+
   end
   def set_beggining
     @current_step = steps.first
