@@ -5,13 +5,13 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
-  
+
   def new
     session[:user_params] ||= {}
     @user = User.new(session[:user_params])
-    @user.current_step = session[:user_step]    
+    @user.current_step = session[:user_step]
   end
-  
+
   def user_valid_actions
     if params[:back_button]
       @user.previous_step
@@ -22,13 +22,13 @@ class UsersController < ApplicationController
     end
     session[:user_step] = @user.current_step
   end
-  
+
   def after_save
       session[:user_step] = session[:user_params] = nil
       flash[:notice] = "User saved!"
       redirect_to users_path
   end
-  
+
   def create
     session[:user_params].deep_merge!(params[:user]) if params[:user]
     @user = User.new(session[:user_params])
