@@ -3,3 +3,7 @@ div[class="user_info"]
   p = "Email: #{user.email}"
   p = "Address: #{user.address}"
   p = "Company's info: #{user.company_info}"
+  p
+    - user.categories.each do |c|
+      = c.name
+      br

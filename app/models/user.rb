@@ -1,9 +1,10 @@
 class User < ActiveRecord::Base
   has_many :user_categories, dependent: :destroy
   has_many :categories, through: :user_categories
-  attr_accessible :street,:address, :company_info, :email, :name, :category_ids
+  attr_accessible :street,:address, :company_info, :email, :name, :category_ids, :new_category
   attr_writer :current_step
-
+  attr_accessor :new_category
+  before_save :create_category
   after_initialize :set_beggining
   validates  :email, :name, presence: true, if: lambda { |o| o.current_step == "step1" }
    validates :street,presence: true, if: lambda { |o| o.current_step == "step2" }
@@ -41,11 +42,18 @@ class User < ActiveRecord::Base
   def last_step?
     current_step == steps.last
   end
-
   def all_valid?
     steps.all? do |step|
       self.current_step = step
       valid?
     end
   end
+
+  protected
+      def create_category
+         if new_category.present?
+          self.categories << Category.find_or_create_by_name(new_category)
+         end
+      end
+
 end
