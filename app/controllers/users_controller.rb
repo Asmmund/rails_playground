@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   def index
+   # debugger
    @users = User.order(' id DESC')
+   time = Time.now.beginning_of_day..Time.now.end_of_day
   end
   def show
     @user = User.find(params[:id])
