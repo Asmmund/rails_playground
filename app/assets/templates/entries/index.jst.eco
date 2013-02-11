@@ -1,8 +1,11 @@
 <p>
   <h2>Entries</h2>
-  <ul>
-  <% for entry in @entries.models: %>
-    <li><%= entry.get('name') %></li>
-  <% end %>
+  <form id='new_entry'>
+  <input type='text' name='name' id='new_entry_name' />
+  <input type='submit' value='Add' />
+  </form>
+  <ul id='entries'>
+
   </ul>
 </p>
+

@@ -4,16 +4,36 @@
  *
  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
  * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
+ *  padding: 5px;
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
  *= require_tree .
  */
-
+body {
+  background: grey !important;
+}
 .errors { text-decoration: none; color: red; vertical-align: top; }
 div.sum_up p:first-line{
   text-decoration: underline ;
 }
 #notice{ font-size: 1.5em; font-weight: bold}
+#content {
+  border: 1px solid black;
+  -webkit-border-radius: 26px;
+  -moz-border-radius:   padding: 5px;background: 26px;
+  border-radius: 26px  padding: 5px;
+  background: white;
+  width: 500px;
+  padding: 5px;
+}
+#content > div {
+    padding: 5px}
+#content >div ul>li {
+  list-style-type:none;
+  margin: 3px;
+  border: 1px solid black;
+  color:blue;
+  padding: 5px;text-align: center;
+}
