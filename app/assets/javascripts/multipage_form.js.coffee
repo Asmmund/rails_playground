@@ -5,7 +5,7 @@ window.MultipageForm =
   Routers: {}
   initialize: ->
     new MultipageForm.Routers.Entries()
-    Backbone.history.start()
+    Backbone.history.start(pushState: true)
 
 $(document).ready ->
   MultipageForm.initialize()

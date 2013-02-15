@@ -22,7 +22,7 @@ div.sum_up p:first-line{
 #content {
   border: 1px solid black;
   -webkit-border-radius: 26px;
-  -moz-border-radius:   padding: 5px;background: 26px;
+  -moz-border-radius:   padding: 5px;
   border-radius: 26px  padding: 5px;
   background: white;
   width: 500px;
@@ -36,4 +36,14 @@ div.sum_up p:first-line{
   border: 1px solid black;
   color:blue;
   padding: 5px;text-align: center;
+}
+
+span.winner {
+  float: right;
+  color: green;
+  font-weight: bold;
+
+}
+.highlight {
+  color: red !important;
 }
