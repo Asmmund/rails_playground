@@ -10,9 +10,5 @@ class MultipageForm.Routers.Entries extends Backbone.Router
     view = new MultipageForm.Views.EntriesIndex( collection: @collection)
     $('#container').html(view.render().el)
   show: (id) ->
-    write_div "entry #{id}"
-
-
-
-  write_div = (message) ->
-    $('#container').html("#{message}")
+    view = new MultipageForm.Views.ShowEntry( id: id)
+    $('#container').html(view.render().el)
