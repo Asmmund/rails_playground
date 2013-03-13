@@ -32,13 +32,24 @@ class Type
     'You don\'t want to know that'
   end
   def pick_winner
-    @@winner = @tickets[rand(@tickets.length - 1)]
+    @@winner = @tickets[rand(@tickets.length )]
     @@winner
   end
 end
 t = Type.new '1234,234' ,'1324','!!'
 p t.tickets
-p t.pick_winner
+winner ={}
+(1...37).each  do |i|
+  ticket = t.pick_winner
+  winner[ticket] = if winner[ticket]
+   winner[ticket] + 1
+ else
+  1
+end
+end
+winner.each do |ticket,times|
+  puts "#{ticket} won #{times} times"
+end
 p Type.class
 t.check_ticket '!!', 1324.to_s
 puts t.class_name

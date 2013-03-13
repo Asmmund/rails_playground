@@ -15,3 +15,9 @@ Dir["idea-*.txt"].each do |filename|
   p File::methods
   puts idea << "\n*"
 end
+require "open-uri"
+open ('https://facebook.com') do |text|
+  text.each_line do |line|
+  puts "* #{line}"
+  end
+end
